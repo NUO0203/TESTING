@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/reserve_style.css">
+        <link rel="stylesheet" href="/css/profile_style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <script src = "/js/logout_script.js"> </script>
+        <script src = "/js/reserve_script.js"> </script>
+        <script src = "/js/other_profiles_script.js"> </script>
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+          <div class="logo">
+            <a href="home"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png" alt="Logo"></a>
+          </div>
+          <div class="menu">
+            <span class="search-icon">
+              <span class="material-icons" onclick="toggleSearchBar();">search</span>
+              <span class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search">
+              </span>
+            </span>
+            <div class="sidebar-toggle">
+              <span class="material-icons" >menu</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <div class="profile-container">
+    <div class="profile-card">
+      <div class="image">
+        <img src={{pic}} alt="Profile Pic" class="profile-img" id="pf_pic">
+      </div>
+      <div class="profile-text" id="">
+        <span id="pf_name_other" class="profile-name"><h1>{{fName}} {{lName}}</h1></span>
+        <span id="pf_email_other" class="profile-email"><p>{{username}}</p></span>
+        <span class="profile-bio"><p id="pf_bio_other">{{bio}}</p></span>
+      </div>     
+    </div>
+  </div>
+   
+    <div class="sidebar">
+      <span id="username-display"></span>
+        <div class="sidebar-buttons">
+          <a href="profile">
+            <span class="material-icons">account_circle</span>
+            <span>Profile</span>
+          </a>
+          <br>
+          <a href="reserve">
+            <span class="material-icons">meeting_room</span>
+            <span>Meeting Rooms</span>
+          </a>
+          <br>
+          <a href="edit">
+            <span class="material-icons">edit</span>
+            <span>Edit Reservation</span>
+          </a>
+          <a href="remove" id = "remove-reservation-menu">
+            <span class="material-icons">delete</span>
+            <span>Remove Reservation</span>
+          </a>
+          <br>
+            <a href="about">
+          <span class="material-icons">info</span>
+          <span>About</span>
+            </a>
+          <br>
+          <a href="javascript:logout()">
+            <span class="material-icons">logout</span>
+            <span>Logout</span>
+          </a>
+        </div>
+        <div class="sidebar-close-btn">
+          <span class="material-icons" >close</span>
+        </div>
+    </div>
+
+
+</body>
+</html>

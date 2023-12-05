@@ -1,0 +1,44 @@
+[
+    {
+        "fName": "Lab",
+        "lName": "Technician",
+        "username": "admin@dlsu.edu.ph",
+        "password": "$2b$12$WFb8ugyHoaw01FanaackjevhovVrdfu1gUa3ko4dqKrxlAcDUXhEO",
+        "pic": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/1200px-De_La_Salle_University_Seal.svg.png",
+        "bio": "DLSU Laboratory Administrator",
+        "technician": true
+    },
+    {
+        "fName": "John Lorenzo",
+        "lName": "Tapia",
+        "username": "john_lorenzo_tapia@dlsu.edu.ph",
+        "password": "$2b$12$Hip4w5hbU19kEqI.PWInyuErUZD47Bnz71lsVUdwD5.k93sJwQUc.",
+        "pic": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
+        "bio": "I returned, and saw under the sun, that the race is not to the swift, nor the battle to the strong, neither yet bread to the wise, nor yet riches to men of understanding, nor yet favour to men of skill; but time and chance happeneth to them all.",
+        "technician": true
+    },
+    {
+        "fName": "Gio",
+        "lName": "Estrada",
+        "username": "gio_estrada@dlsu.edu.ph",
+        "password": "12345",
+        "bio": "",
+        "technician": false
+    },
+    {
+        "fName": "Kimberly",
+        "lName": "Tan",
+        "username": "kimberly_c_tan@dlsu.edu.ph",
+        "password": "123",
+        "bio": "",
+        "technician": false
+    },
+    {
+        "fName": "Rain",
+        "lName": "David",
+        "username": "rain_david@dlsu.edu.ph",
+        "password": "1234",
+        "bio": "",
+        "technician": false
+    }
+]

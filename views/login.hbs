@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/login_css.css">
+  <script src="/js/login_script.js"></script>
+  <script src="/js/validator.min.js"></script>
+</head>
+<body>
+  <div class="banner">
+    <div class="center">
+      <h1>Login</h1>
+      <hr>
+      <form method="post" action="/login" onsubmit="return validateLoginForm(event)">
+        <div class="txt_field">
+          <input type="text" id="username" name="username" required>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="password" name="pw" required>
+          <label>Password</label>
+        </div>
+        <p id="error-message" class="error-message"></p>
+        <input id="loginbutton" type="submit" value="Login">
+        <hr>
+      </form>
+      <button type="return" onclick="location.href='/home';">Go Back</button>
+    </div>
+  </div>
+</body>
+</html>

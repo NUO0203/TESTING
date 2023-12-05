@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/reserve_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src = "/js/logout_script.js"> </script>
+  <script src = "/js/reserve_script.js"> </script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="home"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png" alt="Logo"></a>
+      </div>
+      <div class="menu">
+        <span class="search-icon">
+          <span class="material-icons" onclick="toggleSearchBar();">search</span>
+          <span class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search">
+          </span>
+        </span>
+        <div class="sidebar-toggle">
+          <span class="material-icons" >menu</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="sidebar">
+    <span id="username-display">{{username}}</span>
+      <div class="sidebar-buttons">
+        <a href="profile">
+          <span class="material-icons">account_circle</span>
+          <span>Profile</span>
+        </a>
+        <br>
+        <a href="reserve">
+          <span class="material-icons">meeting_room</span>
+          <span>Meeting Rooms</span>
+        </a>
+        <br>
+        <a href="edit">
+          <span class="material-icons">edit</span>
+          <span>Edit Reservation</span>
+        </a>
+        {{#if technician}}
+        <br>
+          <a href="remove">
+            <span class="material-icons">delete</span>
+            <span>Remove Reservation</span>
+          </a>
+        {{/if}}
+        <br>
+        <a href="about">
+          <span class="material-icons">info</span>
+          <span>About</span>
+        </a>
+        <br>
+        <a href="javascript:logout()">
+          <span class="material-icons">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+      <div class="sidebar-close-btn">
+        <span class="material-icons" >close</span>
+      </div>
+  </div>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <h2>Welcome, {{fName}} {{lName}}.</h2>
+          <p>Book the perfect space in our lab rooms, containing state of the art computers, all for your needs.</p>
+          <a href="#lab-rooms" class="cta-button">Book Now</a>
+        </div>
+      </section>
+  
+      <section id="lab-rooms">
+        <h3>Explore Our Lab Rooms</h3>
+        <div class="room-card-container animated slideIn">
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 1">
+            <div class="room-details">
+              <h4>Lab Room 1</h4>
+              <p>Capacity: {{TotalOpenLab1}}</p>
+              <a href="#" class="reserve-btn" id="lab1" name="lab1" onclick="openOverlay('Lab Room 1')">Reserve</a>
+            </div>
+          </div>
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 2">
+            <div class="room-details">
+              <h4>Lab Room 2</h4>
+              <p>Capacity: {{TotalOpenLab2}}</p>
+              <a href="#" class="reserve-btn" id="lab2" name="lab2" onclick="openOverlay('Lab Room 1')">Reserve</a>
+            </div>
+          </div>
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 3">
+            <div class="room-details">
+              <h4>Lab Room 3</h4>
+              <p>Capacity: {{TotalOpenLab3}}</p>
+              <a href="#" class="reserve-btn" id="lab3" name="lab3" onclick="openOverlay('Lab Room 1')">Reserve</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  {{!--     <section id="lab-rooms">
+        <h3>Explore Our Lab Rooms</h3>
+        <div class="room-card-container animated slideIn">
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 1">
+            <div class="room-details">
+              <h4>{{labNum}}</h4>
+              <p>Capacity: {{capacity}} </p>
+              <a href="#" class="reserve-btn" id="lab1" name="lab1" onclick="openOverlay('Lab Room 1')">Reserve</a>
+            </div>
+          </div>
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 2">
+            <div class="room-details">
+              <h4>{{labNum}}</h4>
+              <p>Capacity: {{capacity}} </p>
+              <a href="#" class="reserve-btn" id="lab2" name="lab2" onclick="openOverlay('Lab Room 1')">Reserve</a>
+            </div>
+          </div>
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 3">
+            <div class="room-details">
+              <h4>{{labNum}}</h4>
+              <p>Capacity: {{capacity}} </p>
+              <a href="#" class="reserve-btn" id="lab3" name="lab3" onclick="openOverlay('Lab Room 1')">Reserve</a>
+            </div>
+          </div>
+        </div>
+      </section>
+ --}}
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <span class="close">&times;</span>
+          <h2>Reservation</h2>
+          <form action="/reserve" method="POST">
+           {{#if technician}}
+              <br>
+              <label for="username">Enter username:</label>
+              <input type="text" id="username" name="username">
+              <br>
+            {{/if}}
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            <br>
+            <label for="labNum">Labratory:</label>
+            <select id="labNum" name="labNum">
+              <option value="-1" selected disabled>Select a Lab</option>
+              <option value="1">Labratory 1</option>
+              <option value="2">Labratory 2</option>
+              <option value="3">Labratory 3</option>
+            </select>
+            <br>
+            <label for="time-in">Time In:</label>
+            <select id="time-in" name="time-in" onchange="updateTimeOut();">
+              <option value="-1" selected disabled>Select a time</option>
+              <option value="0">7:30 AM</option>
+              <option value="1">8:00 AM</option>
+              <option value="2">8:30 AM</option>
+              <option value="3">9:00 AM</option>
+              <option value="4">9:30 AM</option>
+              <option value="5">10:00 AM</option>
+              <option value="6">10:30 AM</option>
+              <option value="7">11:00 AM</option>
+              <option value="8">11:30 AM</option>
+              <option value="9">12:00 PM</option>
+              <option value="10">12:30 PM</option>
+              <option value="11">1:00 PM</option>
+              <option value="12">1:30 PM</option>
+              <option value="13">2:00 PM</option>
+              <option value="14">2:30 PM</option>
+              <option value="15">3:00 PM</option>
+              <option value="16">3:30 PM</option>
+              <option value="17">4:00 PM</option>
+              <option value="18">4:30 PM</option>
+              <option value="19">5:00 PM</option>
+            </select>
+            <br>
+            <label for="time-out">Time Out:</label>
+            <select id="time-out" name="time-out">
+              <option value="-1" selected disabled>Select a time</option>
+              <option value="0">7:30 AM</option>
+              <option value="1">8:00 AM</option>
+              <option value="2">8:30 AM</option>
+              <option value="3">9:00 AM</option>
+              <option value="4">9:30 AM</option>
+              <option value="5">10:00 AM</option>
+              <option value="6">10:30 AM</option>
+              <option value="7">11:00 AM</option>
+              <option value="8">11:30 AM</option>
+              <option value="9">12:00 PM</option>
+              <option value="10">12:30 PM</option>
+              <option value="11">1:00 PM</option>
+              <option value="12">1:30 PM</option>
+              <option value="13">2:00 PM</option>
+              <option value="14">2:30 PM</option>
+              <option value="15">3:00 PM</option>
+              <option value="16">3:30 PM</option>
+              <option value="17">4:00 PM</option>
+              <option value="18">4:30 PM</option>
+              <option value="19">5:00 PM</option>
+            </select>
+            </select>
+            <br>
+            <label for="anonymous">Reservation Type:</label>
+            <select id="anonymous" name="anonymous">
+              <option value="0" selected> Standard Reservation</option>
+              <option value="1"> Anonymous Reservation</option>
+            </select>
+            
+            <div class="parent">
+              <input type="submit" class="next-btn" value="Next">
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  </html>

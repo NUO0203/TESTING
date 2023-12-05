@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/register_technician.css">
+</head>
+<body>
+  <div class="banner">
+    <div class="center">
+      <h1>Lab Technician Registration</h1>
+      <form method="post" action="/register_technician" onsubmit="return validateRegisterTechnicianForm(event)">
+        <div class="txt_field">
+          <input type="text" id="Regisfname" name="fname" required>
+          <span></span>
+          <label>First Name</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" id="Regislname" name="lname" required>
+          <span></span>
+          <label>Last Name</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" id="Regisusername" name="username" required>
+          <span></span>
+          <label>Username</label>
+          <p id="username-error" class="error-message"></p>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="FirstRegispassword" name="pw" required>
+          <span></span>
+          <label>Password</label>
+          <p id="pw-error" class="error-message"></p>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="SecondRegispassword" name="confirmPW" required>
+          <span></span>
+          <label>Confirm Password</label>
+          <p id="confirm-error" class="error-message"></p>
+        </div>
+        <input id="submitbutton" type="submit" value="Register" disabled>
+        <hr>
+      </form>
+      <button type="return" onclick="location.href='/home';">Go Back</button>
+    </div>
+  </div>
+  <script src="/js/register_technician.js"></script>
+  <script src="/js/validator.min.js"></script>
+</body>
+</html>

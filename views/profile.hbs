@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/reserve_style.css">
+        <link rel="stylesheet" href="/css/profile_style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <script src = "/js/logout_script.js"> </script>
+        <script src = "/js/reserve_script.js"> </script>
+        <script src = "/js/profile_script.js"> </script>
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+          <div class="logo">
+            <a href="home"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png" alt="Logo"></a>
+          </div>
+          <div class="menu">
+            <span class="search-icon">
+              <span class="material-icons" onclick="toggleSearchBar();">search</span>
+              <span class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search">
+              </span>
+            </span>
+            <div class="sidebar-toggle">
+              <span class="material-icons" >menu</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="image">
+                <img src={{p_pic}} alt="Profile Pic" class="profile-img" id="pf_pic" onerror="javascript:if(this.src!='images/profile-icon.jpg')this.src='images/profile-icon.jpg';">
+            </div>
+            
+            <div class="profile-text" id="">
+                <span id="pf_name" class="profile-name"><h1>{{p_fName}} {{p_lName}}</h1></span>
+                <span id="pf_email" class="profile-email"><p>{{p_username}}</p></span>
+                <span id="pf_bio" class="profile-bio"><p>{{p_bio}}</p></span>
+            </div>
+
+            <div class="profile-buttons">
+                <button type="button" onclick="editPic()" class="edit-btn-style">Edit Picture</button>
+                <button type="button" onclick="editBio()" class="edit-btn-style">Edit Bio</button>
+                <button type="button" onclick="deleteConfirm()" class="delete-btn-style">Delete Account</button>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <h2>Current Reservations</h2>
+            <div class="table-container">
+                <table class="reservation-table">
+                <thead>
+                  <tr>
+                    <th class="table-cell-green">Date</th>
+                    <th class="table-cell-green-right">Lab Number</th>
+                    <th class="table-cell-green-right">Seat Number</th>
+                    <th class="table-cell-green-right">Time In</th>
+                    <th class="table-cell-green-right">Time Out</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#if data.length}}
+                    {{#each data}}
+                      {{> user_reservations}}
+                    {{/each}}
+                  {{else}}
+                    <tr>
+                      <td colspan="5">No reservations</td>
+                    </tr>
+                  {{/if}}
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+   
+   
+   <!--  <div class="profile-container">
+        <div class="column">
+            <img class="profile-pic" src="profile-icon.jpg" alt="Profile Picture">
+        </div>
+        <div class="column profile-content">
+            <span class="material-icons">account_circle</span>
+            <span class="profile-label">Profile</span>
+            <p></p>
+        </div>
+    </div>
+   -->
+   <div class="sidebar">
+    <span id="username-display"></span>
+      <div class="sidebar-buttons">
+        <a href="profile">
+          <span class="material-icons">account_circle</span>
+          <span>Profile</span>
+        </a>
+        <br>
+        <a href="reserve">
+          <span class="material-icons">meeting_room</span>
+          <span>Meeting Rooms</span>
+        </a>
+        <br>
+        <a href="edit">
+          <span class="material-icons">edit</span>
+          <span>Edit Reservation</span>
+        </a>
+        {{#if technician}}
+        <br>
+          <a href="remove">
+            <span class="material-icons">delete</span>
+            <span>Remove Reservation</span>
+          </a>
+        {{/if}}
+        <br>
+        <a href="about">
+          <span class="material-icons">info</span>
+          <span>About</span>
+        </a>
+        <br>
+        <a href="javascript:logout()">
+          <span class="material-icons">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+      <div class="sidebar-close-btn">
+        <span class="material-icons" >close</span>
+      </div>
+  </div>
+
+
+</body>
+</html>

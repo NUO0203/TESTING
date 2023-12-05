@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/seat_selection.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Poppins:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="/js/logout_script.js"> </script>
+  <script src="/js/seat_selection.js"> </script>
+
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="home"><img
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png"
+          alt="Logo"></a>
+      </div>
+      <div class="menu">
+        <span class="search-icon">
+          <span class="material-icons" onclick="toggleSearchBar();">search</span>
+          <span class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search">
+          </span>
+        </span>
+        <div class="sidebar-toggle">
+          <span class="material-icons">menu</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- <div class="sidebar">
+    <span id="username-display">{{username}}</span>
+    <div class="sidebar-buttons">
+      <a href="profile">
+        <span class="material-icons">account_circle</span>
+        <span>Profile</span>
+      </a>
+      <br>
+      <a href="reserve">
+        <span class="material-icons">meeting_room</span>
+        <span>Meeting Rooms</span>
+      </a>
+      <br>
+      <a href="edit">
+        <span class="material-icons">edit</span>
+        <span>Edit Reservation</span>
+      </a>
+      <a href="remove" id="remove-reservation-menu">
+        <span class="material-icons">delete</span>
+        <span>Remove Reservation</span>
+      </a>
+      <br>
+      <a href="javascript:logout()">
+        <span class="material-icons">logout</span>
+        <span>Logout</span>
+      </a>
+    </div>
+    <div class="sidebar-close-btn">
+      <span class="material-icons">close</span>
+    </div>
+  </div> --}}
+
+  <div class="container">
+    <div class="reservation-details">
+      {{#if latestReservation}}
+      <div class="reservation-details">
+        <h2>Reservation Details</h2>
+        <p>Date: {{latestReservation.date}} </p>
+        <p>Time: {{latestReservation.timeIn}} - {{latestReservation.timeOut}}</p>
+        <p>Room: {{latestReservation.labNum}}</p>
+        <p>Email: {{latestReservation.username}}</p>
+      </div>
+      {{else}}
+      <p>No reservations found.</p>
+      {{/if}}
+      <div class="row">
+        <div class="seat-display">50</div>
+        <p> Available Seats</p>
+        <div class="seat-sold">50</div>
+        <p> Occupied Seats</p>
+      </div>
+    </div>
+    <div class="seat-selection">
+      <div class="screen">Whiteboard</div>
+      <div class="seat-rows">
+
+        <div class="row">
+          {{#if (includes TakenSeatNumber 1)}}
+          <div class="seat-sold" id="0">1</div>
+          {{else}}
+          <div class="seat" id="0">1</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 2)}}
+          <div class="seat-sold" id="1">2</div>
+          {{else}}
+          <div class="seat" id="1">2</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 3)}}
+          <div class="seat-sold" id="2">3</div>
+          {{else}}
+          <div class="seat" id="2">3</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+
+          {{#if (includes TakenSeatNumber 4)}}
+          <div class="seat-sold" id="3">4</div>
+          {{else}}
+          <div class="seat" id="3">4</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 5)}}
+          <div class="seat-sold" id="4">5</div>
+          {{else}}
+          <div class="seat" id="4">5</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 6)}}
+          <div class="seat-sold" id="5">6</div>
+          {{else}}
+          <div class="seat" id="5">6</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 7)}}
+          <div class="seat-sold" id="6">7</div>
+          {{else}}
+          <div class="seat" id="6">7</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+
+          {{#if (includes TakenSeatNumber 8)}}
+          <div class="seat-sold" id="7">8</div>
+          {{else}}
+          <div class="seat" id="7">8</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 9)}}
+          <div class="seat-sold" id="8">9</div>
+          {{else}}
+          <div class="seat" id="8">9</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 10)}}
+          <div class="seat-sold" id="9">10</div>
+          {{else}}
+          <div class="seat" id="9">10</div>
+          {{/if}}
+        </div>
+
+        <div class="row">
+          {{#if (includes TakenSeatNumber 11)}}
+          <div class="seat-sold" id="10">11</div>
+          {{else}}
+          <div class="seat" id="10">11</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 12)}}
+          <div class="seat-sold" id="11">12</div>
+          {{else}}
+          <div class="seat" id="11">12</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 13)}}
+          <div class="seat-sold" id="12">13</div>
+          {{else}}
+          <div class="seat" id="12">13</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+          {{#if (includes TakenSeatNumber 14)}}
+          <div class="seat-sold" id="13">14</div>
+          {{else}}
+          <div class="seat" id="13">14</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 15)}}
+          <div class="seat-sold" id="14">15</div>
+          {{else}}
+          <div class="seat" id="14">15</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 16)}}
+          <div class="seat-sold" id="15">16</div>
+          {{else}}
+          <div class="seat" id="15">16</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 17)}}
+          <div class="seat-sold" id="16">17</div>
+          {{else}}
+          <div class="seat" id="16">17</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+
+          {{#if (includes TakenSeatNumber 18)}}
+          <div class="seat-sold" id="17">18</div>
+          {{else}}
+          <div class="seat" id="17">18</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 19)}}
+          <div class="seat-sold" id="18">19</div>
+          {{else}}
+          <div class="seat" id="18">19</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 20)}}
+          <div class="seat-sold" id="19">20</div>
+          {{else}}
+          <div class="seat" id="19">20</div>
+          {{/if}}
+
+        </div>
+        <div class="row">
+          {{#if (includes TakenSeatNumber 21)}}
+          <div class="seat-sold" id="20">21</div>
+          {{else}}
+          <div class="seat" id="20">21</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 22)}}
+          <div class="seat-sold" id="21">22</div>
+          {{else}}
+          <div class="seat" id="21">22</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 23)}}
+          <div class="seat-sold" id="22">23</div>
+          {{else}}
+          <div class="seat" id="22">23</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+          {{#if (includes TakenSeatNumber 24)}}
+          <div class="seat-sold" id="23">24</div>
+          {{else}}
+          <div class="seat" id="23">24</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 25)}}
+          <div class="seat-sold" id="24">25</div>
+          {{else}}
+          <div class="seat" id="24">25</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 26)}}
+          <div class="seat-sold" id="25">26</div>
+          {{else}}
+          <div class="seat" id="25">26</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 27)}}
+          <div class="seat-sold" id="26">27</div>
+          {{else}}
+          <div class="seat" id="26">27</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+
+          {{#if (includes TakenSeatNumber 28)}}
+          <div class="seat-sold" id="27">28</div>
+          {{else}}
+          <div class="seat" id="27">28</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 29)}}
+          <div class="seat-sold" id="28">29</div>
+          {{else}}
+          <div class="seat" id="28">29</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 30)}}
+          <div class="seat-sold" id="29">30</div>
+          {{else}}
+          <div class="seat" id="29">30</div>
+          {{/if}}
+        </div>
+
+        <div class="row">
+          {{#if (includes TakenSeatNumber 31)}}
+          <div class="seat-sold" id="30">31</div>
+          {{else}}
+          <div class="seat" id="30">31</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 32)}}
+          <div class="seat-sold" id="31">32</div>
+          {{else}}
+          <div class="seat" id="31">32</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 33)}}
+          <div class="seat-sold" id="32">33</div>
+          {{else}}
+          <div class="seat" id="32">33</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+          {{#if (includes TakenSeatNumber 34)}}
+          <div class="seat-sold" id="33">34</div>
+          {{else}}
+          <div class="seat" id="33">34</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 35)}}
+          <div class="seat-sold" id="34">35</div>
+          {{else}}
+          <div class="seat" id="34">35</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 36)}}
+          <div class="seat-sold" id="35">36</div>
+          {{else}}
+          <div class="seat" id="35">36</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 37)}}
+          <div class="seat-sold" id="36">37</div>
+          {{else}}
+          <div class="seat" id="36">37</div>
+          {{/if}}
+
+          <div class="aisle"></div>
+
+          {{#if (includes TakenSeatNumber 38)}}
+          <div class="seat-sold" id="37">38</div>
+          {{else}}
+          <div class="seat" id="37">38</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 39)}}
+          <div class="seat-sold" id="38">39</div>
+          {{else}}
+          <div class="seat" id="38">39</div>
+          {{/if}}
+          {{#if (includes TakenSeatNumber 40)}}
+          <div class="seat-sold" id="39">40</div>
+          {{else}}
+          <div class="seat" id="39">40</div>
+          {{/if}}
+        </div>
+
+
+        <a href="#" class="next-btn" id="reserve-btn" onclick="reserveSeat()">Reserve</a>
+
+        <p id="selectedSeatText"></p>
+
+        <a href="#" class="next-btn" onclick="reservationHolder()" id="reservationProfileBtn">Go To Reservation Holder
+          Profile</a>
+        <button class="next-btn" id="reservee-btn" onclick="openOverlay()">Check Reservee</button>
+
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <span class="close">&times;</span>
+      <h2>Reserved Seats and Reservee Names</h2>
+        {{#if ReserveeName}}
+          <ul>
+            {{#each ReserveeName}}
+              {{#if (lookup ../TakenSeatNumber @index)}}
+                <li>Seat Number: {{lookup ../TakenSeatNumber @index}} - Reservee Name: {{this}}</li>
+            {{else}}
+                <li>Seat Number: N/A - Reservee Name: {{this}}</li>
+              {{/if}}
+            {{/each}}
+          </ul>
+        {{else}}
+          <p>No other reservee</p>
+        {{/if}}
+        {{#if DropDownReservee}}
+        <form action="/seat_selection" method="POST">
+          <label for="reservee">Go To Profile Of</label>
+          <select id="reservee" name="reservee">
+            <option value="-1" selected disabled>Select a Reservee</option>
+              {{#each DropDownReservee}}
+                  <option value="{{this}}">{{this}}</option>
+              {{/each}}
+          </select>
+          {{/if}}
+          <input type="submit" class="next-btn" value="Next">
+        </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

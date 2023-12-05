@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),url(https://specopssoft.com/wp-content/uploads/2015/08/Lab-computers.jpg);
+    background-position: center;
+}
+
+.home-content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fffcfb;
+}
+
+.home-content h1 {
+    font-size: 60px;
+    margin-top: 70px;
+}
+
+.home-content p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 25px;
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+.home-button {
+    width: 200px;
+    padding: 15px -0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #117848;
+    background: transparent;
+    color: #fffcfb;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-span {
+    background: #117848;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.home-button:hover .home-span {
+    width: 100%;
+} 
+
+.home-button:hover {
+    border: none;
+}

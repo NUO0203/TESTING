@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/edit_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src = "/js/logout_script.js"> </script>
+  <script src = "/js/edit_script.js"> </script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="home"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png" alt="Logo"></a>
+      </div>
+      <div class="menu">
+        <span class="search-icon">
+          <span class="material-icons" onclick="toggleSearchBar();">search</span>
+          <span class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search">
+          </span>
+        </span>
+        <div class="sidebar-toggle">
+          <span class="material-icons" >menu</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="sidebar">
+    <span id="username-display">{{username}}</span>
+      <div class="sidebar-buttons">
+        <a href="profile">
+          <span class="material-icons">account_circle</span>
+          <span>Profile</span>
+        </a>
+        <br>
+        <a href="reserve">
+          <span class="material-icons">meeting_room</span>
+          <span>Meeting Rooms</span>
+        </a>
+        <br>
+        <a href="edit">
+          <span class="material-icons">edit</span>
+          <span>Edit Reservation</span>
+        </a>
+        {{#if technician}}
+        <br>
+          <a href="remove">
+            <span class="material-icons">delete</span>
+            <span>Remove Reservation</span>
+          </a>
+        {{/if}}
+        <br>
+        <a href="about">
+          <span class="material-icons">info</span>
+          <span>About</span>
+        </a>
+        <br>
+        <a href="javascript:logout()">
+          <span class="material-icons">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+      <div class="sidebar-close-btn">
+        <span class="material-icons" >close</span>
+      </div>
+  </div>
+
+    <main>
+        <span>
+            <section id="home" class="hero-section">
+                <div class="hero-content">
+                  <h2>Edit your reservation.</h2>
+                  <a href="#lab-rooms" class="cta-button">Edit Now</a>
+                </div>
+              </section>
+        </span>
+      
+  
+      <section id="lab-rooms">
+        <h3>Select a Laboratory to Start</h3>
+        <div class="room-card-container animated slideIn">
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 1">
+            <div class="room-details">
+              <h4>Lab Room 1</h4>
+              <p>Capacity: {{TotalOpenLab1}}</p>
+              <a href="#" class="reserve-btn" onclick="openOverlay('Lab Room 1')">Edit</a>
+            </div>
+          </div>
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 2">
+            <div class="room-details">
+              <h4>Lab Room 2</h4>
+              <p>Capacity: {{TotalOpenLab2}}</p>
+              <a href="#" class="reserve-btn" onclick="openOverlay('Lab Room 1')">Edit</a>
+            </div>
+          </div>
+          <div class="room-card">
+            <img src="https://wiki.nus.edu.sg/download/attachments/351963177/CL%202.jpeg?version=2&modificationDate=1631153303683&api=v2" alt="Meeting Room 3">
+            <div class="room-details">
+              <h4>Lab Room 3</h4>
+              <p>Capacity: {{TotalOpenLab3}}</p>
+              <a href="#" class="reserve-btn" onclick="openOverlay('Lab Room 1')">Edit</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <span class="close">&times;</span>
+          <h2>Edit Reservation</h2>
+          <form action="/edit" method="POST">
+            {{#if technician}}
+              <br>
+              <label for="username">Enter username:</label>
+              <input type="text" id="username" name="username">
+              <br>
+            {{/if}}
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            <br>
+            <label for="labNum">Labratory:</label>
+            <select id="labNum" name="labNum">
+              <option value="-1" selected disabled>Select a Lab</option>
+              <option value="1">Labratory 1</option>
+              <option value="2">Labratory 2</option>
+              <option value="3">Labratory 3</option>
+            </select>
+            <br>
+            <label for="seat-assignment">Seat Assignment:</label>
+            <select id="seat-assignment" name="seatassignment">
+                <option value="-1" selected disabled>Select a seat</option>
+                <option value="1">Seat 1</option>
+                <option value="2">Seat 2</option>
+                <option value="3">Seat 3</option>
+                <option value="4">Seat 4</option>
+                <option value="5">Seat 5</option>
+                <option value="6">Seat 6</option>
+                <option value="7">Seat 7</option>
+                <option value="8">Seat 8</option>
+                <option value="9">Seat 9</option>
+                <option value="10">Seat 10</option>
+                <option value="11">Seat 11</option>
+                <option value="12">Seat 12</option>
+                <option value="13">Seat 13</option>
+                <option value="14">Seat 14</option>
+                <option value="15">Seat 15</option>
+                <option value="16">Seat 16</option>
+                <option value="17">Seat 17</option>
+                <option value="18">Seat 18</option>
+                <option value="19">Seat 19</option>
+                <option value="20">Seat 20</option>
+                <option value="21">Seat 21</option>
+                <option value="22">Seat 22</option>
+                <option value="23">Seat 23</option>
+                <option value="24">Seat 24</option>
+                <option value="25">Seat 25</option>
+                <option value="26">Seat 26</option>
+                <option value="27">Seat 27</option>
+                <option value="28">Seat 28</option>
+                <option value="29">Seat 29</option>
+                <option value="30">Seat 30</option>
+                <option value="31">Seat 31</option>
+                <option value="32">Seat 32</option>
+                <option value="33">Seat 33</option>
+                <option value="34">Seat 34</option>
+                <option value="35">Seat 35</option>
+                <option value="36">Seat 36</option>
+                <option value="37">Seat 37</option>
+                <option value="38">Seat 38</option>
+                <option value="39">Seat 39</option>
+                <option value="40">Seat 40</option>
+            </select>
+            <br>
+            <label for="time-in">Time In:</label>
+            <select id="time-in" name="timeIn" onchange="updateTimeOut();">
+              <option value="-1" selected disabled>Select a time</option>
+              <option value="0">7:30 AM</option>
+              <option value="1">8:00 AM</option>
+              <option value="2">8:30 AM</option>
+              <option value="3">9:00 AM</option>
+              <option value="4">9:30 AM</option>
+              <option value="5">10:00 AM</option>
+              <option value="6">10:30 AM</option>
+              <option value="7">11:00 AM</option>
+              <option value="8">11:30 AM</option>
+              <option value="9">12:00 PM</option>
+              <option value="10">12:30 PM</option>
+              <option value="11">1:00 PM</option>
+              <option value="12">1:30 PM</option>
+              <option value="13">2:00 PM</option>
+              <option value="14">2:30 PM</option>
+              <option value="15">3:00 PM</option>
+              <option value="16">3:30 PM</option>
+              <option value="17">4:00 PM</option>
+              <option value="18">4:30 PM</option>
+              <option value="19">5:00 PM</option>
+            </select>
+            <br>
+            <label for="time-out">Time Out:</label>
+            <select id="time-out" name="timeOut">
+
+              <option value="-1" selected disabled>Select a time</option>
+              <option value="0">7:30 AM</option>
+              <option value="1">8:00 AM</option>
+              <option value="2">8:30 AM</option>
+              <option value="3">9:00 AM</option>
+              <option value="4">9:30 AM</option>
+              <option value="5">10:00 AM</option>
+              <option value="6">10:30 AM</option>
+              <option value="7">11:00 AM</option>
+              <option value="8">11:30 AM</option>
+              <option value="9">12:00 PM</option>
+              <option value="10">12:30 PM</option>
+              <option value="11">1:00 PM</option>
+              <option value="12">1:30 PM</option>
+              <option value="13">2:00 PM</option>
+              <option value="14">2:30 PM</option>
+              <option value="15">3:00 PM</option>
+              <option value="16">3:30 PM</option>
+              <option value="17">4:00 PM</option>
+              <option value="18">4:30 PM</option>
+              <option value="19">5:00 PM</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <table class="reservation-table">
+              <thead>
+                <tr>
+                  <th class="table-cell-green-right">Date</th>
+                  <th class="table-cell-green-right">Lab Number</th>
+                  <th class="table-cell-green-right">Seat Number</th>
+                  <th class="table-cell-green-right">Time In</th>
+                  <th class="table-cell-green-right">Time Out</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if data.length}}
+                  {{#each data}}
+                    {{> user_reservations}}
+                  {{/each}}
+                {{else}}
+                  <tr>
+                    <td colspan="5">No reservations</td>
+                  </tr>
+                {{/if}}
+              </tbody>
+            </table>
+            <div class="parent">
+            <input type="submit" class="next-btn" value="Next">
+            </div>
+          </form>
+        </div>
+      </div>
+  
+    <!--   <section id="testimonials">
+        <h3>What Our Students Say</h3>
+        <div class="testimonial-container">
+          <div class="testimonial">
+            <p>"10/10 ewan q na pero maganda"</p>
+            <p class="testimonial-author">- Kim</p>
+          </div>
+          <div class="testimonial">
+            <p>"XD XD XD ganda wews would reco"</p>
+            <p class="testimonial-author">- kim</p>
+          </div>
+        </div>
+      </section> -->
+    </main>
+  </body>
+  </html>

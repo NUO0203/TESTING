@@ -1,0 +1,207 @@
+/*profile*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.profile-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.75)),url(https://specopssoft.com/wp-content/uploads/2015/08/Lab-computers.jpg);
+  background-position: center;
+  font-family: 'Poppins', sans-serif;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+  overflow: auto; /* Add overflow property for scrolling */
+}
+
+
+.image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(19, 124, 91);
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.image .profile-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.profile-card .profile-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-text .profile-name{
+  font-size: 22px;
+  font-weight: 500;
+  color: #333333;
+
+}
+
+.profile-text .profile-email{
+  font-size: 15px;
+  font-weight: 550;
+  font-family: 'Hind Madurai', sans-serif;
+  color: #b2b0b0;
+}
+.profile-text .profile-bio{
+  margin-top: 10px;
+  font-size: 15px;
+  font-family: 'Hind Madurai', sans-serif;
+  color: #333333;
+}
+
+.profile-card .profile-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.profile-buttons .edit-btn-style {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 550;
+  border: 15px #990f02;
+  border-radius: 24px;
+  margin: 0 5px;
+  padding: 8px 24px;
+  background-color: #c6c5c5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-buttons .edit-btn-style:hover {
+  background-color: #908e8e;
+}
+
+.profile-buttons .delete-btn-style {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 550;
+  border: none;
+  border-radius: 24px;
+  margin: 0 5px;
+  padding: 8px 24px;
+  background-color: #c51c0e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-buttons .delete-btn-style:hover {
+  background-color: #990f02;
+}
+
+/* .table-container {
+  font-size: small;
+  font-style: normal;
+} */
+
+.table-cell-green {
+  color: #FFF;
+  background-color: #00703b;
+  text-align: center;
+  vertical-align: bottom;
+  padding-inline: 10px;
+}
+
+.table-cell-left {
+  color: #FFF;
+  background-color: #00703b;
+  text-align: center;
+  vertical-align: top;
+  padding-inline: 10px;
+}
+
+.table-cell-green-right {
+  color: #FFF;
+  background-color: #00703b;
+  text-align: center;
+  vertical-align: bottom;
+  padding-inline: 10px;
+}
+
+.table-cell-left-bottom {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.table-cell-center-bottom {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+
+/* Reservation Table Styles */
+.reservation-table {
+  width: 100%; /* Adjust the table width to occupy the entire container */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table-container {
+  margin-top: 20px; /* Add some spacing between the header and the table */
+  overflow: hidden /* Enable vertical scrolling for the table container */
+}
+
+/* Additional styles for the "Remove Reservation" button */
+.remove-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #00703b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 300px;
+  cursor: pointer;
+  margin-top: 20px; /* Add margin to separate from the table */
+  margin-bottom: 20px; /* Add margin to move the button down within the container */
+  margin-left: 230px;
+}
+
+.remove-btn:hover {
+  background-color: #105c38;
+  cursor: pointer;
+}
+
+.table-cell-left-bottom-check{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

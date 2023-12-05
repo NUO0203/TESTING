@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/remove_style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src = "/js/logout_script.js"> </script>
+  <script src = "/js/remove_script.js"> </script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="home"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png" alt="Logo"></a>
+      </div>
+      <div class="menu">
+        <span class="search-icon">
+          <span class="material-icons" onclick="toggleSearchBar();">search</span>
+          <span class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search">
+          </span>
+        </span>
+        <div class="sidebar-toggle">
+          <span class="material-icons" >menu</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="sidebar">
+    <span id="username-display">{{CurrentUsername}}</span>
+      <div class="sidebar-buttons">
+        <a href="/profile">
+          <span class="material-icons">account_circle</span>
+          <span>Profile</span>
+        </a>
+        <br>
+        <a href="/reserve">
+          <span class="material-icons">meeting_room</span>
+          <span>Meeting Rooms</span>
+        </a>
+        <br>
+        <a href="/edit">
+          <span class="material-icons">edit</span>
+          <span>Edit Reservation</span>
+        </a>
+        
+        <a href="/remove" id = "remove-reservation-menu">
+          <span class="material-icons">delete</span>
+          <span>Remove Reservation</span>
+        </a>
+        <br>
+        <a href="about">
+          <span class="material-icons">info</span>
+          <span>About</span>
+        </a>
+        <br>
+        <a href="javascript:logout()">
+          <span class="material-icons">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+      <div class="sidebar-close-btn">
+        <span class="material-icons" >close</span>
+      </div>
+  </div>
+
+    <main>
+        <span>
+            <section id="home" class="hero-section">
+                <div class="hero-content">
+                  <h2>Remove a reservation.</h2>
+                  <p>Maximum of 10 minutes past the scheduled time only.</p>
+                  <a href="#lab-rooms" class="cta-button">Remove Now</a>
+                </div>
+              </section>
+        </span>
+      
+    <div class="container">
+  <h2>Upcoming Reservations</h2>
+  <form id="removeForm" method="POST" action="/remove"> <!-- Wrap the table inside a form -->
+    <div class="table-container">
+      <table class="reservation-table">
+        <thead>
+          <tr>
+            <th class="table-cell-left">Remove</th>
+            <th class="table-cell-green">First Name</th>
+            <th class="table-cell-green">Last Name</th>
+            <th class="table-cell-green">Email</th>
+            <th class="table-cell-green-right">Lab Number</th>
+            <th class="table-cell-green-right">Seat Number</th>
+            <th class="table-cell-green-right">Time In</th>
+            <th class="table-cell-green-right">Time Out</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if data.length}}
+            {{#each data}}
+              {{> reservations}}
+            {{/each}}
+          {{else}}
+            <tr>
+              <td colspan="5">No reservations</td>
+            </tr>
+          {{/if}}
+        </tbody>
+      </table>
+      <br>
+      <button type="submit" class="remove-btn" onclick="removeSelectedReservations();">Remove Selected Reservations</button>
+    </div>
+  </form>
+</div>
+  
+    </main>
+  </body>
+  </html>

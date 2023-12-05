@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hind Madurai', sans-serif;
+    background-color: #EAD9C7;
+  }
+  
+  /* Header */
+  header {
+    background-color: #333333;
+    padding: 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    color: #FFFCFB
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 200px;
+    height: 100%;
+    background-color: #00703B;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 2;
+  }
+  
+  .sidebar.active {
+    right: 0;
+  }
+  
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebar-toggle i {
+    font-size: 30px;
+    color: #00703b;
+  }
+  
+  #username-display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-top: 30px;
+    font-size: 15px;
+    padding: 3px;
+    color: #FFFCFB;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .sidebar-buttons {
+    display: block;
+    align-items: left;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  .sidebar-buttons a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #FFFCFB;
+    font-size: 18px;
+  }
+  
+  .sidebar-buttons a span {
+    margin-left: 10px;
+  }
+  
+  #remove-reservation-menu{
+    margin-top: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  
+  .search-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    color: #FFFCFB;
+  }
+  
+  .expanded {
+    width: 200px;
+    opacity: 1;
+  }
+  
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 0px;
+    overflow: hidden;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .search-bar.expanded {
+    width: 200px;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    color: #00703b;
+    background-color: transparent;
+    transition: width 0.3s ease;
+    outline: none;
+  }
+  
+  
+  .line {
+    width: 20px;
+    height: 2px;
+    background-color: #00703b;
+    margin: 2px;
+  }
+  
+  /* Main Content */
+  main {
+    padding: 20px;
+  }
+  
+  .hero-section {
+    background: #00703B;
+    color: #fff;
+    padding: 80px 0px;
+    text-align: center;
+    border-radius: 20px;
+  }
+  
+  .hero-content h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 17px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #C51C0E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #992015;
+  }
+  
+  h3 {
+    color: #00703B;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .center {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .center th,
+  .center td {
+    padding: 10px;
+    border: 2px solid #00703b;
+    color: #00703b; /* Green text color */
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  .center th {
+    background-color: #00703b;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .center td:first-child {
+    text-align: center;
+    font-weight: bold;
+  }
+
+.copy-right p {
+  font-size: 14px;
+  text-align: center;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.group-members,
+.npm-packages,
+.external-libraries {
+    background-color: rgb(236, 235, 210);
+    border: 2px solid #00703b;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 40px;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.copy-right {
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  align-items: center;
+}

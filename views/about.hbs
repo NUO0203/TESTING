@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/about.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src = "/js/logout_script.js"> </script>
+  <script src = "/js/reserve_script.js"> </script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="home"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/De_La_Salle_University_Seal.svg/800px-De_La_Salle_University_Seal.svg.png" alt="Logo"></a>
+      </div>
+      <div class="menu">
+        <span class="search-icon">
+          <span class="material-icons" onclick="toggleSearchBar();">search</span>
+          <span class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search">
+          </span>
+        </span>
+        <div class="sidebar-toggle">
+          <span class="material-icons" >menu</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="sidebar">
+    <span id="username-display">{{username}}</span>
+      <div class="sidebar-buttons">
+        <a href="profile">
+          <span class="material-icons">account_circle</span>
+          <span>Profile</span>
+        </a>
+        <br>
+        <a href="reserve">
+          <span class="material-icons">meeting_room</span>
+          <span>Meeting Rooms</span>
+        </a>
+        <br>
+        <a href="edit">
+          <span class="material-icons">edit</span>
+          <span>Edit Reservation</span>
+        </a>
+        {{#if technician}}
+        <br>
+          <a href="remove">
+            <span class="material-icons">delete</span>
+            <span>Remove Reservation</span>
+          </a>
+        {{/if}}
+        <br>
+        <a href="about">
+          <span class="material-icons">info</span>
+          <span>About</span>
+        </a>
+        <br>
+        <a href="javascript:logout()">
+          <span class="material-icons">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+      <div class="sidebar-close-btn">
+        <span class="material-icons" >close</span>
+      </div>
+  </div>
+
+    <main>
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h2>Group 08 of S12 of DLSU CCAPDEV 2022-2023 Term 3</h2>
+      <p>Proudly presents this computer laboratory reservation system in fulfillment of the required Major Course Output.</p>
+    </div>
+  </section>
+
+  <section class="group-members">
+    <h3>Group Members</h3>
+    <table class="center">
+      <thead>
+        <tr>
+          <th>Names</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rain David</td>
+        </tr>
+        <tr>
+          <td>Gio Estrada</td>
+        </tr>
+        <tr>
+          <td>Kimberly Tan</td>
+        </tr>
+        <tr>
+          <td>John Lorenzo Tapia</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="npm-packages">
+    <h3>NPM Packages</h3>
+    <table class="center">
+      <thead>
+        <tr>
+          <th>Packages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bcrypt (5.1.0)</td>
+        </tr>
+        <tr>
+          <td>body-parser (1.20.2)</td>
+        </tr>
+        <tr>
+          <td>dotenv (16.3.1)</td>
+        </tr>
+        <tr>
+          <td>express-session (1.17.3)</td>
+        </tr>
+        <tr>
+          <td>express-validator (7.0.1)</td>
+        </tr>
+        <tr>
+          <td>express (4.18.2)</td>
+        </tr>
+        <tr>
+          <td>hbs (4.2.0)</td>
+        </tr>
+        <tr>
+          <td>mongodb (5.7.0)</td>
+        </tr>
+        <tr>
+          <td>mongoose (7.4.0)</td>
+        </tr>
+        <tr>
+          <td>validator (13.9.0)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="external-libraries">
+    <h3>External Libraries</h3>
+    <table class="center">
+      <thead>
+        <tr>
+          <th>Libraries</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google Fonts | (https://fonts.google.com/)</td>
+        </tr>
+        <tr>
+          <td>Google Material Symbols | (https://fonts.google.com/icons)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
+  <section class="copyright">
+    <p>Copyright © 2023 by 2223T3-S12-G08 All Rights Reserved.</p>
+  </section>
+</main>
+
+  </body>
+  </html>
